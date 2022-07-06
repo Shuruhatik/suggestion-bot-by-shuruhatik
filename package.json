@@ -1,0 +1,22 @@
+{
+  "name": "suggestion-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk-animation": "^2.0.2",
+    "eris": "^0.17.1",
+    "express": "^4.18.1",
+    "inquirer": "^9.0.0",
+    "nanospinner": "^1.1.0",
+    "node-fetch": "^3.2.6",
+    "st.db": "^4.0.7"
+  }
+}
