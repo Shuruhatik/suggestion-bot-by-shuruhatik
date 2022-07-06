@@ -1,10 +1,8 @@
 import Database from "st.db";
 import Eris from "eris";
-import express from 'express';
 import { createSpinner } from "nanospinner";
 import fetch from "node-fetch";
 import SyncCommands from "./SyncCommands.mjs";
-const app = express()
 //import replit from "quick.replit"
 //const config_replit_db = new replit.Database(process.env["REPLIT_DB_URL"])
 const config_replit_db = new Database({ path: "./token.json", databaseInObject: true })
@@ -27,19 +25,6 @@ export default async function () {
         bot.editStatus(`online`, [{ name: config.get("status_bot"), type: config.get("status_type") }]);
         let bot_invite_link = `https://discord.com/api/oauth2/authorize?client_id=${bot.user.id}&permissions=8&scope=applications.commands%20bot`
         spinner.success({ text: `Logged in as ${bot.user.username} (${bot.user.id})` })
-        app.get('/', (r, s) => {
-            s.send({ message: "Bot by Shuruhatik#2443", youtube_channel: "https://www.youtube.com/ShuruhatikYT" })
-        }).post('/', async (r, s) => {
-            s.send({
-                message: "Bot by Shuruhatik#2443", youtube_channel: "https://www.youtube.com/ShuruhatikYT"
-            })
-            if (await config_replit_db.has(`uptime`) != true) {
-                console.log("\u001b[32m✔ \u001b[0mUptime has been done successfully")
-                await config_replit_db.set(`uptime`, true)
-            }
-        })
-            .get("/invite", (req, res) => res.status(301).redirect(bot_invite_link))
-            .listen(3000)
         console.log("\u001b[32m▣\u001b[0m \u001b[0mBot Run By \u001b[34;1mShuruhatik#2443\u001b[0m")
         console.log("\u001b[32m▣ \u001b[0m\u001b[0m\u001b[40;1m\u001b[34;1mhttps://" + process.env.REPL_ID + ".id.repl.co/invite\u001b[0m")
     })
